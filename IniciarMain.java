@@ -7,9 +7,7 @@ public class IniciarMain{
         jogo.executar();
 
 
-        Mapa mapa = new Mapa();
-
-        mapa.mapaMatriz();
+        
     }
 }
 
