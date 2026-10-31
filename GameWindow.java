@@ -46,7 +46,7 @@ public class GameWindow {
             {1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
             {1, 0, 1, 0, 1, 0, 1, 0, 0, 1},
             {1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
         };
 
         @Override 
@@ -69,6 +69,10 @@ public class GameWindow {
                     }
                     else if(mapamatriz[i][j] ==2){
                         g.setColor(Color.BLUE);
+                        g.fillRect(x, y, TAMANHO_QUADRADO, TAMANHO_QUADRADO);
+                    }
+                    else if(mapamatriz[i][j] ==3){
+                        g.setColor(Color.GRAY);
                         g.fillRect(x, y, TAMANHO_QUADRADO, TAMANHO_QUADRADO);
                     }
                     else{
