@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 
 
@@ -10,6 +12,7 @@ public class GameWindow {
             janela();
             
     }
+    
 
 
     public void janela(){
@@ -30,10 +33,36 @@ public class GameWindow {
         tela.add(painel);    
     }
 
-    private class PainelJogo extends JPanel{
+    private class PainelJogo extends JPanel implements KeyListener{
         private final int LINHAS = 10;
         private final int COLUNAS = 10;
         private final int TAMANHO_QUADRADO = 40;
+        private int jogadorX = 4;
+        private int jogadorY = 5;
+
+        public PainelJogo(){
+            setFocusable(true);
+            addKeyListener(this);
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            switch (e) {
+                case KeyEvent.VK_W:
+                    jogadorY += 1;
+                    break;
+                case KeyEvent.VK_S:
+                    jogadorY -= 1;
+                case KeyEvent.VK_D:
+                    jogadorX += 1;
+                case KeyEvent.VK_A:
+                    jogadorY -= 1;
+            
+                default:
+                    break;
+            }
+        }
+
 
     
         private int[][] mapamatriz = {
@@ -55,6 +84,15 @@ public class GameWindow {
 
             for(int i= 0; i < LINHAS; i++){
                 for(int j= 0; j < COLUNAS; j++){
+
+                    g.setColor(Color.RED);
+
+                    g.fillRect(
+                        jogadorX = TAMANHO_QUADRADO, 
+                        jogadorY = TAMANHO_QUADRADO, 
+                        TAMANHO_QUADRADO,
+                        TAMANHO_QUADRADO
+                    );
 
                     int x = j * TAMANHO_QUADRADO;
                     int y = i * TAMANHO_QUADRADO;
