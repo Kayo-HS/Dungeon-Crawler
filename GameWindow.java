@@ -53,10 +53,13 @@ public class GameWindow {
                     break;
                 case KeyEvent.VK_S:
                     jogadorY += 1;
+                    break;
                 case KeyEvent.VK_D:
                     jogadorX -= 1;
+                    break;
                 case KeyEvent.VK_A:
                     jogadorY += 1;
+                    break;
             
                 default:
                     break;
