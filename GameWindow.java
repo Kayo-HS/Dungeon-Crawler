@@ -49,14 +49,14 @@ public class GameWindow {
         public void keyPressed(KeyEvent e) {
             switch (e) {
                 case KeyEvent.VK_W:
-                    jogadorY += 1;
+                    jogadorY -= 1;
                     break;
                 case KeyEvent.VK_S:
-                    jogadorY -= 1;
+                    jogadorY += 1;
                 case KeyEvent.VK_D:
-                    jogadorX += 1;
+                    jogadorX -= 1;
                 case KeyEvent.VK_A:
-                    jogadorY -= 1;
+                    jogadorY += 1;
             
                 default:
                     break;
