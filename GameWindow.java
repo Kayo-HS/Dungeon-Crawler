@@ -10,9 +10,8 @@ public class GameWindow {
 
     public void executar(){
             janela();
-            
-    }
-    
+            }
+
 
 
     public void janela(){
@@ -75,7 +74,7 @@ public class GameWindow {
     }
 
 
-    
+
         private int[][] mapamatriz = {
             {3, 1, 1, 1, 1, 1, 3, 1, 1, 1},
             {3, 0, 0, 0, 0, 0, 0, 0, 1, 1},
@@ -93,17 +92,14 @@ public class GameWindow {
         protected void paintComponent(Graphics g){
             super.paintComponent(g);
 
+            
+
             for(int i= 0; i < LINHAS; i++){
                 for(int j= 0; j < COLUNAS; j++){
 
                     g.setColor(Color.RED);
 
-                    g.fillRect(
-                        jogadorX = TAMANHO_QUADRADO, 
-                        jogadorY = TAMANHO_QUADRADO, 
-                        TAMANHO_QUADRADO,
-                        TAMANHO_QUADRADO
-                    );
+                    
 
                     int x = j * TAMANHO_QUADRADO;
                     int y = i * TAMANHO_QUADRADO;
@@ -128,8 +124,15 @@ public class GameWindow {
                         g.setColor(Color.WHITE);
                         g.fillRect(x, y, TAMANHO_QUADRADO, TAMANHO_QUADRADO);
                     }
-                }
+
+                }             
             }
+            g.fillRect(
+                        jogadorX * TAMANHO_QUADRADO, 
+                        jogadorY * TAMANHO_QUADRADO, 
+                        TAMANHO_QUADRADO,
+                        TAMANHO_QUADRADO
+                    );
         }
     }
 }
