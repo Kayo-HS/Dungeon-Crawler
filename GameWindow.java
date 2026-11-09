@@ -127,7 +127,8 @@ public class GameWindow {
 
                 }             
             }
-            g.fillRect(
+            g.setColor(Color.WHITE);
+            g.fillOval(
                         jogadorX * TAMANHO_QUADRADO, 
                         jogadorY * TAMANHO_QUADRADO, 
                         TAMANHO_QUADRADO,
