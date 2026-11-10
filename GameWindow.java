@@ -44,23 +44,30 @@ public class GameWindow {
             addKeyListener(this);
         }
 
+        private boolean podeMover(int proximoX, int proximoY){
+            if(proximoX >= 0 && proximoX < COLUNAS && proximoY >= 0 && proximoY < LINHAS){
+                int bloco = mapamatriz[proximoY][proximoX];
+                return bloco == 0 || bloco == 2;
+            }
+            return false;
+        }
+
         @Override
         public void keyPressed(KeyEvent e) {
             int botao = e.getKeyCode();
             switch (botao) {
                 case KeyEvent.VK_W:
-                    jogadorY -= 1;
+                    if (podeMover(jogadorX, jogadorY - 1)) jogadorY -= 1;
                     break;
                 case KeyEvent.VK_S:
-                    jogadorY += 1;
+                    if (podeMover(jogadorX, jogadorY + 1)) jogadorY += 1;
                     break;
                 case KeyEvent.VK_D:
-                    jogadorX += 1;
+                    if (podeMover(jogadorX + 1, jogadorY))jogadorX += 1;
                     break;
                 case KeyEvent.VK_A:
-                    jogadorX -= 1;
+                    if (podeMover(jogadorX - 1, jogadorY))jogadorX -= 1;
                     break;
-            
                 default:
                     break;
             }
@@ -77,14 +84,14 @@ public class GameWindow {
 
         private int[][] mapamatriz = {
             {3, 1, 1, 1, 1, 1, 3, 1, 1, 1},
-            {3, 0, 0, 0, 0, 0, 0, 0, 1, 1},
+            {3, 1, 0, 0, 0, 0, 0, 0, 0, 1},
             {1, 0, 1, 0, 1, 0, 1, 0, 0, 1},
-            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-            {1, 1, 1, 1, 0, 0, 0, 0, 0, 1},
-            {1, 1, 1, 1, 2, 1, 1, 0, 0, 1},
+            {1, 0, 0, 0, 1, 1, 0, 1, 0, 1},
+            {1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 1, 0, 1, 1, 0, 0, 1},
             {1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
             {1, 0, 1, 0, 1, 0, 1, 0, 0, 1},
-            {1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+            {1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
         };
 
