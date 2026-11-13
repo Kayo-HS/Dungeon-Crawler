@@ -16,20 +16,24 @@ public class GameWindow {
 
     public void janela(){
         tela = new JFrame("Dungeon Crawler");
-        tela.setSize(400, 400);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        tela.setLocationRelativeTo(null);
-        desenharJanela();
+        tela.setResizable(false);
 
+        PainelJogo painel = desenharJanela();
+
+        tela.pack();
+        tela.setLocationRelativeTo(null);
         tela.setVisible(true);
+
+        painel.requestFocusInWindow();
     }
     
 
-    public void desenharJanela(){
+    public PainelJogo desenharJanela(){
         PainelJogo painel = new PainelJogo();
-        
         painel.setBackground(new Color(22,13,14));
-        tela.add(painel);    
+        tela.add(painel); 
+        return painel;
     }
 
     private class PainelJogo extends JPanel implements KeyListener{
@@ -40,6 +44,7 @@ public class GameWindow {
         private int jogadorY = 5;
 
         public PainelJogo(){
+            setPreferredSize(new Dimension(COLUNAS * TAMANHO_QUADRADO, LINHAS * TAMANHO_QUADRADO));
             setFocusable(true);
             addKeyListener(this);
         }
